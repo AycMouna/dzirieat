@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "632982471203",
+    "project_id": "dzirieat-e36de",
+    "storage_bucket": "dzirieat-e36de.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:632982471203:android:bd82179c18213149e26796",
+        "android_client_info": {
+          "package_name": "com.example.dzirieat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6PXF4ouQjELQHJ9WBwwQNzE-PV_fMNn4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
