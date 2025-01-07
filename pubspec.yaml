@@ -19,6 +19,8 @@ dependencies:
   firebase_auth: ^5.3.4
   cloud_firestore: ^5.5.0
   uuid: ^3.0.7
+  flutter_rating_bar: ^4.0.0
+
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +31,11 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
+    - assets/images/splash_bg.jpg
+    - assets/images/categories/
+    - assets/images/regions/
+    - assets/images/restaurants/
+    - assets/images/menus/
     - assets/images/splash_bg.jpg
 
   uses-material-design: true

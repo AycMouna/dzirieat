@@ -6,13 +6,21 @@ class UserFunctions {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;  // Instance of Firestore
 
   // Register Users with role
-  Future<User?> registerUser(String email, String password) async {
+  Future<User?> registerUser (String email, String password) async {
     try {
       // Create user with Firebase Authentication
       UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      // Save user data to Firestore
+      await _firestore.collection('users').doc(userCredential.user!.uid).set({
+        'email': email,
+        'role': 'user',  // Default role is 'user'
+        'createdAt': FieldValue.serverTimestamp(), // Optional: Timestamp
+        // You can add other fields as necessary
+      });
 
       // Return the created user
       return userCredential.user;
@@ -25,20 +33,8 @@ class UserFunctions {
     }
   }
 
-  // Register user with a role in Firestore
-  Future<void> registerUserWithRole(String userId, String role) async {
-    try {
-      await _firestore.collection('users').doc(userId).set({
-        'role': role,  // Save the user's role (admin or user)
-        // Additional fields can be added here like email, name, etc.
-      });
-    } catch (e) {
-      print("Error saving user role in Firestore: $e");
-    }
-  }
-
   // Login Users and fetch role
-  Future<Map<String, dynamic>?> loginUser(String email, String password) async {
+  Future<Map<String, dynamic>?> loginUser (String email, String password) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
         email: email,
